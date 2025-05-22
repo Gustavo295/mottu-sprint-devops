@@ -95,6 +95,7 @@ sudo docker run hello-world
 ```
 sudo usermod -aG docker admmottu
 ```
+Reinicie a conexão com a VM após usar o comando
 
 ## DELETANDO A VM
 
