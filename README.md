@@ -28,25 +28,45 @@ az vm create --resource-group rg-vm-mottu --name vm-mottu --image almalinux:alma
 
 ## Expondo portas
 
-### Porta 80
+### Porta 22
 
+- Múltiplas linhas
 ```
 az network nsg rule create \
    --resource-group rg-vm-mottu \
    --nsg-name nsgsr-mottu \
-   --name port_80 \
+   --name port_22 \
    --protocol tcp \
    --priority 1010 \
-   --destination-port-range 80
+   --destination-port-range 22
 ```
 
+- Uma linha
 ```
-az network nsg rule create --resource-group rg-vm-mottu --nsg-name nsgsr-mottu --name port_80 --protocol tcp --priority 1010 --destination-port-range 80
+az network nsg rule create --resource-group rg-vm-mottu --nsg-name nsgsr-mottu --name port_22 --protocol tcp --priority 1010 --destination-port-range 22
+```
+
+### Porta 22
+
+- Múltiplas linhas
+```
+az network nsg rule create \
+   --resource-group rg-vm-mottu \
+   --nsg-name nsgsr-mottu \
+   --name port_1521 \
+   --protocol tcp \
+   --priority 1020 \
+   --destination-port-range 1521
+```
+
+- Uma linha
+```
+az network nsg rule create --resource-group rg-vm-mottu --nsg-name nsgsr-mottu --name port_1521 --protocol tcp --priority 1020 --destination-port-range 1521
 ```
 
 ### Porta 8080
 
-#### Múltiplas linhas
+- Múltiplas linhas
 
 ```
 az network nsg rule create \
@@ -54,14 +74,14 @@ az network nsg rule create \
    --nsg-name nsgsr-mottu \
    --name port_8080 \
    --protocol tcp \
-   --priority 1020 \
+   --priority 1030 \
    --destination-port-range 8080
 ```
 
-#### Múltiplas linhas
+- Uma linha
 
 ```
-az network nsg rule create --resource-group rg-vm-mottu --nsg-name nsgsr-mottu --name port_8080 --protocol tcp --priority 1020 --destination-port-range 8080
+az network nsg rule create --resource-group rg-vm-mottu --nsg-name nsgsr-mottu --name port_8080 --protocol tcp --priority 1030 --destination-port-range 8080
 ```
 
 ## Instalação e configuração do Docker na VM
