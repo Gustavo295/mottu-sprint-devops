@@ -116,6 +116,25 @@ az network nsg rule create \
 ```
 az network nsg rule create --resource-group rg-vm-mottu --nsg-name nsgsr-mottu --name port_8080 --protocol tcp --priority 1040 --destination-port-range 8080
 ```
+### Porta 3000
+
+- Múltiplas linhas
+
+```
+az network nsg rule create \
+   --resource-group rg-vm-mottu \
+   --nsg-name nsgsr-mottu \
+   --name port_3000 \
+   --protocol tcp \
+   --priority 1050 \
+   --destination-port-range 3000
+```
+
+- Uma linha
+
+```
+az network nsg rule create --resource-group rg-vm-mottu --nsg-name nsgsr-mottu --name port_3000 --protocol tcp --priority 1050 --destination-port-range 3000
+```
 ---
 ## ♻ 3º - Instalação e configuração do Docker e Git na VM
 
@@ -181,6 +200,22 @@ docker run -d --name app-mottu --network net-mottu -p 8080:8080 app-mottu
 ```
 ---
 ## ▶ 5º - CRUD
+
+- GET
+![image](https://github.com/user-attachments/assets/d7eb1a54-909b-4df0-948f-8d69d08e100a)
+
+- POST
+![image](https://github.com/user-attachments/assets/df211fda-5ce3-4167-854e-45aa24056741)
+![image](https://github.com/user-attachments/assets/3aca9ba6-1854-4353-9700-1b7dd379887b)
+
+- PUT
+![image](https://github.com/user-attachments/assets/63aa7a89-6e72-4e71-adf8-69798892227c)
+![image](https://github.com/user-attachments/assets/7b23ed0e-9114-4032-aa23-22bab6f0b191)
+
+- DELETE
+![image](https://github.com/user-attachments/assets/49fe9c45-bd79-43b4-8329-557b03fd14a5)
+![image](https://github.com/user-attachments/assets/04924ac3-d5b7-4229-ae4e-a855573d4570)
+
 ---
 ## 🏦´6º - Arquitetura do projeto
 
