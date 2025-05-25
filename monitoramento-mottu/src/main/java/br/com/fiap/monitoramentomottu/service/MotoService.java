@@ -100,6 +100,12 @@ public class MotoService {
             moto.setCondicao(condicao);
         }
 
+        if(dto.patioId()!=null){
+            Patio patio  = patioRepository.findById(dto.patioId())
+                    .orElseThrow(()->new Exception("Patio nao encontrado"));
+            moto.setPatio(patio);
+        }
+
         moto = motoRepository.save(moto);
         return mapper.MotoToResponse(moto,true);
     }
@@ -128,7 +134,7 @@ public class MotoService {
 
         if (modelo != null) {
             try{
-                Modelo modelo1 = Modelo.valueOf(modelo);
+                Modelo modelo1 = Modelo.valueOf(modelo.toUpperCase());
                 resultado = motoRepository.findByModelo(modelo1);
             }
             catch (Exception e){
@@ -139,7 +145,6 @@ public class MotoService {
         else if (condicao != null) {
             resultado = motoRepository.findByCondicaoNomeIgnoreCase(condicao);
         } else {
-            System.out.println("Erro");
             resultado = motoRepository.findAll();
         }
 

@@ -3,6 +3,7 @@ package br.com.fiap.monitoramentomottu.service;
 import br.com.fiap.monitoramentomottu.dto.Filial.FilialRequest;
 import br.com.fiap.monitoramentomottu.dto.Filial.FilialResponse;
 import br.com.fiap.monitoramentomottu.entity.Filial;
+import br.com.fiap.monitoramentomottu.mappers.EnderecoMapper;
 import br.com.fiap.monitoramentomottu.mappers.FilialMapper;
 import br.com.fiap.monitoramentomottu.repository.FilialRepository;
 import org.springframework.cache.annotation.CacheEvict;
@@ -18,10 +19,13 @@ public class FilialService {
 
     private final FilialRepository filialRepository;
     private final FilialMapper filialMapper;
+    private final EnderecoMapper enderecoMapper;
 
-    public FilialService(FilialRepository filialRepository, FilialMapper filialMapper) {
+
+    public FilialService(FilialRepository filialRepository, FilialMapper filialMapper, EnderecoMapper enderecoMapper) {
         this.filialRepository = filialRepository;
         this.filialMapper = filialMapper;
+        this.enderecoMapper = enderecoMapper;
     }
 
     @Transactional
@@ -57,7 +61,7 @@ public class FilialService {
         if (dto.nome() != null) filial.setNome(dto.nome());
         if (dto.ano() != 0) filial.setAno(dto.ano());
         if (dto.cnpj() != null) filial.setCnpj(dto.cnpj());
-
+        if(dto.endereco()!=null) filial.setEndereco(enderecoMapper.RequestToEndereco( dto.endereco()));
         filial = filialRepository.save(filial);
         return filialMapper.FilialToResponse(filial, true);
     }
