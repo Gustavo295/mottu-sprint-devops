@@ -1,8 +1,5 @@
 package br.com.fiap.monitoramentomottu.dto.Moto;
 
-import br.com.fiap.monitoramentomottu.dto.Anotacao.ExistsId;
-import br.com.fiap.monitoramentomottu.entity.Condicao;
-import br.com.fiap.monitoramentomottu.entity.Patio;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -20,9 +17,7 @@ public record MotoRequest(
         String modelo,
         @NotNull(message = "A moto precisa de uma condição")
         @Positive(message = "O valor não pode ser negativo" )
-        @ExistsId(entity = Condicao.class, message = "CondicaoId não existe")
         Long condicaoId,
         @Positive(message = "O valor não pode ser negativo" )
-        @ExistsId(entity = Patio.class, message = "PatioId não existe")
         Long patioId
 ) {}

@@ -37,7 +37,6 @@ public class CondicaoMapper {
             ).withRel("Lista de Condições");
         }
         return new CondicaoResponse(
-                condicao.getId(),
                 condicao.getCor(),
                 condicao.getNome(),
                 link

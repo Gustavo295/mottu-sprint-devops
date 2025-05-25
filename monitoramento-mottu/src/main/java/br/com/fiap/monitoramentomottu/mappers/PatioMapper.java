@@ -38,7 +38,6 @@ public class PatioMapper {
             ).withRel("Lista de Patios");
         }
         return new PatioResponse(
-                patio.getId(),
                 patio.getQtdMoto(),
                 patio.getAreaPatio(),
                 patio.getCapacidadeMoto(),

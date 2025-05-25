@@ -2,7 +2,6 @@ package br.com.fiap.monitoramentomottu.entity;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,7 +18,7 @@ public class Patio {
     @Column(name = "capacidade_motos",nullable = false)
     private int capacidadeMoto;
     @OneToMany(mappedBy = "patio", cascade = CascadeType.ALL)
-    private List<Moto> motos = new ArrayList<>();
+    private List<Moto> motos;
     @ManyToOne
     @JoinColumn(name = "id_filial", nullable = false)
     private Filial filial;

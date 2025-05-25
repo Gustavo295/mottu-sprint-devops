@@ -21,8 +21,6 @@ public class Endereco {
     private String bairro;
     @Column(name="logradouro")
     private String logradouro;
-    @OneToOne(mappedBy = "endereco")
-    private Filial filial;
 
     public Endereco() {
     }

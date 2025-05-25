@@ -29,8 +29,7 @@ public class FilialMapper {
         filial.setNome(dto.nome());
         filial.setCnpj(dto.cnpj());
         filial.setAno(dto.ano());
-        filial.setEndereco(
-                enderecoMapper.RequestToEndereco(dto.endereco()));
+        filial.setEndereco(enderecoMapper.RequestToEndereco(dto.endereco()));
         return filial;
     }
 

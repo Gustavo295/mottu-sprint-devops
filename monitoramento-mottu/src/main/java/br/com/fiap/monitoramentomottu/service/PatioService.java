@@ -37,6 +37,7 @@ public class PatioService {
         patio.setCapacidadeMoto(dto.capacidadeMax());
         patio.setAreaPatio( dto.area());
         patio.setFilial(filialRepository.findById(dto.filialId()).orElseThrow(() -> new Exception("Filial não encontrada")));
+        patio.setMotos(motoRepository.findByIdIn(dto.motosId()));
         patio = patioRepository.save(patio);
         return mapper.PatioToResponse(patio,true);
     }

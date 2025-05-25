@@ -1,7 +1,7 @@
 package br.com.fiap.monitoramentomottu.dto.Endereco;
 
 public record EnderecoResponse(
-     int numero,
+     Integer numero,
      String cep,
      String estado,
      String cidade,

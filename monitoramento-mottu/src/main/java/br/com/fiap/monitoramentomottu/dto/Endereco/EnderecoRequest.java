@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 
 public record EnderecoRequest(
     @NotNull(message = "O número não pode ser nulo")
-    int numero,
+    Integer numero,
     @NotBlank(message = "O CEP não pode estar em branco")
     @Size(min = 8, max = 9, message = "O CEP deve ter entre 8 e 9 caracteres")
     String cep,
