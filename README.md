@@ -182,14 +182,14 @@ docker network create net-mottu
 ```
 ### Criação do Banco
 ```
-docker container run -d --name oracle-db --network net-mottu -p 1521:1521 -p 5500:5500 --ulimit nofile=65535:65535 -e ORACLE_PWD=Oracle123 -v /home/admlnx/oracle_data:/opt/oracle/oradata container-registry.oracle.com/database/express:21.3.0-xe && sudo chown 54321:54321 /home/admlnx/oracle_data
+docker container run -d --name oracle-db --network net-mottu -p 1521:1521 -p 5500:5500 --ulimit nofile=65535:65535 -e ORACLE_PWD=Oracle123 -v /home/admmottu/oracle_data:/opt/oracle/oradata container-registry.oracle.com/database/express:21.3.0-xe && sudo chown 54321:54321 /home/admmottu/oracle_data
 ```
 - Leva em torno de 10 minutos para a criação completa do banco, para saber se já foi criado, use o comendo `docker ps -a`, se o container estiver em status "UP (Healty)", já pode ser usado.
 
 ### Puxando e rodando o APP
 - Clona o repositório e já entra da pasta do app
 ```
-git clone https://github.com/Yoshida672/BackEnd-Java-Mottu && cd BackEnd-Java-Mottu/monitoramento-mottu
+git clone https://github.com/gustavo295/mottu-sprint-devops && cd mottu-sprint-devops/monitoramento-mottu
 ```
 - Builda o Dockerfile e rode o container
 ```
@@ -197,6 +197,10 @@ docker build -t app-mottu .
 ```
 ```
 docker run -d --name app-mottu --network net-mottu -p 8080:8080 app-mottu
+```
+### Container Dbgate
+```
+docker run -d --name dbgate --network net-mottu -p 3000:3000 dbgate/dbgate
 ```
 ---
 ## ▶ 5º - CRUD
